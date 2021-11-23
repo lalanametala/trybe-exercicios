@@ -1,12 +1,22 @@
-h1, p {
-    text-align: center;
+div:hover {
+    border: solid;
 }
-li:hover {
-    background-color: chartreuse;
+#div1 {
+    color: blueviolet;    
 }
-li:active {
-    color: darkolivegreen;
+#div2 {
+    color: rgb(107, 85, 128);
 }
-ol, ul {
-    list-style: none;
+#div3 {
+    color: rgb(147, 226, 43);
+    font-size: 2em;
+}
+#div4 {
+    color: rgb(27, 7, 46);
+}
+#div5 {
+    color: rgb(196, 159, 231);
+}
+#div1, #div3, #div5 {
+    font-style: italic;
 }
