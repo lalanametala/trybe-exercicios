@@ -1,22 +1,11 @@
-div:hover {
-    border: solid;
+ol {
+    background-color: yellow;
 }
-#div1 {
-    color: blueviolet;    
+
+ol li:nth-child(even) {
+    color: green;
 }
-#div2 {
-    color: rgb(107, 85, 128);
-}
-#div3 {
-    color: rgb(147, 226, 43);
-    font-size: 2em;
-}
-#div4 {
-    color: rgb(27, 7, 46);
-}
-#div5 {
-    color: rgb(196, 159, 231);
-}
-#div1, #div3, #div5 {
-    font-style: italic;
+
+ol li:nth-child(odd) {
+    text-transform: uppercase;
 }
