@@ -1,9 +1,10 @@
-const a=0;
-const b=2;
-const c=8;
+const valorCusto=-1;
+const valorVenda=2;
 
-if (a%2!==0 || b%2!==0 || c%2!==0){
-    console.log(true)
+
+if (valorCusto<0 || valorVenda<0){
+    console.log("erro")
 } else {
-    console.log (false);    
+    let lucro =valorVenda-valorCusto*1.2;
+    console.log (lucro);    
 }
