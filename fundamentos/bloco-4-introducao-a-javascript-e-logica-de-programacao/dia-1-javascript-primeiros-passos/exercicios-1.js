@@ -1,10 +1,19 @@
-const valorCusto=-1;
-const valorVenda=2;
+const salarioBruto = 10000;
+const salarioBase;
+const imposto;
 
-
-if (valorCusto<0 || valorVenda<0){
-    console.log("erro")
+if (salarioBruto<=1556.94){
+    salarioBase=salarioBruto*0.92;
+} else if (salarioBruto<=2594.92) {
+    salarioBase=salarioBruto*0.91;
+} else if (salarioBruto<=5189.82){
+    salarioBase=salarioBruto*0.89;
 } else {
-    let lucro =valorVenda-valorCusto*1.2;
-    console.log (lucro);    
+    salarioBase=salarioBruto-570.88;
+}
+
+if (salarioBase<=1903.98) {
+    imposto=0;
+} else if (salarioBase<=2826.65) {
+    
 }
