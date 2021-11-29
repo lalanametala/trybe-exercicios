@@ -1,5 +1,5 @@
-let menu = ['Home', 'Serviços', 'Portfólio', 'Links'];
+let groceryList = ['Arroz', 'Feijão', 'Alface', 'Melancia'];
 
-menu.push('Contato');
-
-console.log(menu);
+for (let index=0;index<groceryList.length;index+=1){
+    console.log(groceryList[index]);
+}
