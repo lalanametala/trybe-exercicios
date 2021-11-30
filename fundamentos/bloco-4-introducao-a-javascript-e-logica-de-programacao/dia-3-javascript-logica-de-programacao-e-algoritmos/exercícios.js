@@ -1,10 +1,16 @@
-function triangle (n) {
-    let linha="";
+function invertedTriangle (n) {
     for (let i=0;i<n;i++){
-        linha+='*';
+        let linha="";
+        for (let j=0; j<n; j++){
+            if (j<(n-i-1)){
+                linha+=" ";
+            } else {
+                linha+="*";
+            }
+        }  
         console.log(linha);
     }
     return;
 }
 
-triangle(5);
+invertedTriangle(5);
