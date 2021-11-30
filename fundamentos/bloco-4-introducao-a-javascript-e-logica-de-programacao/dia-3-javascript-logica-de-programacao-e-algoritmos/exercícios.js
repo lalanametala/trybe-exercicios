@@ -1,4 +1,12 @@
-function pyramid (n) {
+// Por último, façamos com que a variável seja incrementada com o valor correspondente a cada loop;
+// n = 7
+
+//   *
+//  * *
+// *   *
+//*******
+
+function emptyPyramid (n) {
     let centro=(n+1)/2;
     let espacoDireita=centro;
     let espacoEsquerda=centro;
@@ -7,11 +15,14 @@ function pyramid (n) {
     for (let i=0;i<=centro;i++){
         
         for (let j=0; j<=n; j++){
-            if (j>espacoEsquerda && j<espacoDireita){
+            if (i==centro) {
+                linha=" "+"*".repeat(n);
+            } else if (j==espacoEsquerda || j==espacoDireita) {
                 linha+="*";
-            } else {
-                linha+=" ";
             }
+            else {           
+                linha+=" ";
+            }        
         }  
         console.log(linha);
         linha="";
@@ -21,4 +32,4 @@ function pyramid (n) {
     return;
 }
 
-pyramid(5);
+emptyPyramid(7);
