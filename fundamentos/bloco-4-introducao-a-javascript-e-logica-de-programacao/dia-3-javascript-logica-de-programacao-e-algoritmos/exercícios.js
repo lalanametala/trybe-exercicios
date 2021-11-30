@@ -1,12 +1,10 @@
-function square (n) {
+function triangle (n) {
     let linha="";
     for (let i=0;i<n;i++){
         linha+='*';
-    }
-    for (let j=0; j<n; j++){
-        console.log (linha);
+        console.log(linha);
     }
     return;
 }
 
-square(5);
+triangle(5);
