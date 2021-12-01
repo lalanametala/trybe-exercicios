@@ -1,15 +1,15 @@
 //Parte II - Funções
 let palavra="";
-function maiorNumero(arranjo){
-    let indiceMaiorNumero=0;
-    let maiorNumeroAtual=0;
+function menorNumero(arranjo){
+    let indiceMenorNumero=0;
+    let menorNumeroAtual=0;
     for (let position in arranjo){
-        if (arranjo[position]>maiorNumeroAtual){
-            maiorNumeroAtual=arranjo[position];
-            indiceMaiorNumero=position;
+        if (arranjo[position]<menorNumeroAtual){
+            menorNumeroAtual=arranjo[position];
+            indiceMenorNumero=position;
         }
     }
-    return indiceMaiorNumero;
+    return indiceMenorNumero;
 }
-let teste =[2, 3, 6, 7, 10, 1];
-console.log(maiorNumero(teste));
+let teste =[2, 4, 6, 7, 10, 0, -3];
+console.log(menorNumero(teste));
