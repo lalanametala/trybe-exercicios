@@ -1,13 +1,23 @@
 //Parte II - Funções
 let palavra="";
-function maisCaracteres(arranjo){
-    let maisCaracteresAtual="";
+function maisRepeticoes(arranjo){
+    let maisRepetidoAtual=0;
+    let numeroRepeticoesMaior=0;
     for (let position in arranjo){
-        if (arranjo[position].length>maisCaracteresAtual.length){
-            maisCaracteresAtual=arranjo[position];
+        let contadorRepeticoes=0;
+        for (let posicao in arranjo){  
+            if (posicao!=position){
+                if (arranjo[position]==arranjo[posicao]){
+                    contadorRepeticoes+=1;
+                }
+            }
+        }
+        if (contadorRepeticoes>numeroRepeticoesMaior){
+            numeroRepeticoesMaior=contadorRepeticoes;
+            maisRepetidoAtual=arranjo[position];
         }
     }
-    return maisCaracteresAtual;
+    return maisRepetidoAtual;
 }
-let teste =['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana'];
-console.log(maisCaracteres(teste));
+let teste =[2, 3, 2, 5, 8, 2, 3];
+console.log(maisRepeticoes(teste));
