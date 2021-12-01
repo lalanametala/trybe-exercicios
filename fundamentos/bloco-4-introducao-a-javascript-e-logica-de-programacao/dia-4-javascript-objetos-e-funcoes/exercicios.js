@@ -1,16 +1,15 @@
 //Parte II - Funções
 let palavra="";
-function verificaPalindromo(palavra){
-    let arranjoPalavra=palavra.split("");    
-    let arranjoPalavraReversa=arranjoPalavra.reverse();
-    let palavraReversa=arranjoPalavraReversa.join('');
-    let retorno;
-    if (palavra===palavraReversa){
-        retorno=true;
-    } else {
-        retorno=false;
+function maiorNumero(arranjo){
+    let indiceMaiorNumero=0;
+    let maiorNumeroAtual=0;
+    for (let position in arranjo){
+        if (arranjo[position]>maiorNumeroAtual){
+            maiorNumeroAtual=arranjo[position];
+            indiceMaiorNumero=position;
+        }
     }
-    return retorno;
+    return indiceMaiorNumero;
 }
-
-console.log(verificaPalindromo("desenvolvimento"));
+let teste =[2, 3, 6, 7, 10, 1];
+console.log(maiorNumero(teste));
