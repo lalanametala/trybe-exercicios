@@ -74,7 +74,24 @@
         function corrigeTexto(seletor) {
             document.querySelector(seletor).innerText = "Exercício 5.1 - JavaScript";
         }
+        
         corrigeTexto(".title");
+
+        function paragrafosMaiusculos(seletor) {
+            let paragrafos = document.querySelectorAll(seletor);
+            for (let p of paragrafos){
+                p.innerText=p.innerText.toUpperCase();
+            }
+        }
+        paragrafosMaiusculos("p");
+
+        function consoleWriter(seletor) {
+            let paragrafos = document.querySelectorAll(seletor);
+            for (let p of paragrafos){
+                console.log(p.innerText);
+            }
+        }
+        consoleWriter("p");
 
     </script>
   </body>
