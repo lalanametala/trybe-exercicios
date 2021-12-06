@@ -118,9 +118,11 @@
       titulo.className = 'title';
 
       //ex2
-      tag1.className = 'description';
-      tag2.className = 'description';
-      tag3.className = 'description';
+      let agaTres = document.querySelectorAll('h3');
+      for (let elemento of agaTres) {
+        elemento.className = 'description';
+      }
+
 
       //ex3
       document.querySelector('main').removeChild(esquerda);
