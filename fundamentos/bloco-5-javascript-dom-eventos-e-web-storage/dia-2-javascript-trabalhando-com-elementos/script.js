@@ -16,3 +16,14 @@ document.querySelector('#elementoOndeVoceEsta').appendChild(paragrafo);
 
 document.querySelector('#primeiroFilhoDoFilho').appendChild(paragrafo);
 console.log(document.getElementById('primeiroFilhoDoFilho').firstElementChild.parentElement.parentElement.nextElementSibling);
+
+//parte 3
+let paiDoPai = document.querySelector('#paiDoPai').childNodes;
+
+for (let no of paiDoPai) {
+    if (!(no.id.contains('pai') && no.id.contains('elementoOndeVoceEsta') && no.id.contains('primeiroFilhoDoFilho'))){
+        paiDoPai.removeChild(no);
+    }
+}
+
+
