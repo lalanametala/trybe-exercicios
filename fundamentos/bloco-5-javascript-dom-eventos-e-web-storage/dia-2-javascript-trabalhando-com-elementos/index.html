@@ -94,25 +94,32 @@
       imagem.className = 'small-image';
       document.querySelector('.left-content').appendChild(imagem);
 
-      
-
       //exercício 8
-    //   let lista = document.createElement('ul');
-    //   let valores = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
-    //   for (let valor of valores) {
-    //     let item = document.createElement('li');
-    //     item.innerText = valor;
-    //     document.querySelector('ul').appendChild(item);
-    //   }
-    //   document.querySelector('.right-content').appendChild(lista);
-
+      let lista = document.createElement('ul');
+      document.querySelector('.right-content').appendChild(lista);
+      
+      let valores = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+      
+      for (let valor of valores) {
+        let item = document.createElement('li');
+        item.innerText = valor;
+        document.querySelector('ul').appendChild(item);
+      }
+      
       //exercicio 9
       let tag1 = document.createElement('h3');
       let tag2 = document.createElement('h3');
       let tag3 = document.createElement('h3');
       document.querySelector('main').appendChild(tag1);
       document.querySelector('main').appendChild(tag2);
-      document.querySelector('main').appendChild(tag3);      
+      document.querySelector('main').appendChild(tag3);    
+      
+      //SEGUNDA PARTE
+    
+
+      
+      
+
 
     </script>
   </body>
