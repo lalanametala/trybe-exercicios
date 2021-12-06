@@ -106,12 +106,10 @@
       }
       
       //exercicio 9
-      let tag1 = document.createElement('h3');
-      let tag2 = document.createElement('h3');
-      let tag3 = document.createElement('h3');
-      document.querySelector('main').appendChild(tag1);
-      document.querySelector('main').appendChild(tag2);
-      document.querySelector('main').appendChild(tag3);    
+        for (let i=0; i<3; i++){
+            let tag = document.createElement('h3');
+            document.querySelector('main').appendChild(tag);
+        }
       
       //SEGUNDA PARTE
       //ex 1
