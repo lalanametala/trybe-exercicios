@@ -5,3 +5,14 @@ console.log(document.getElementById('elementoOndeVoceEsta').previousElementSibli
 console.log(document.getElementById('elementoOndeVoceEsta').nextSibling);
 console.log(document.getElementById('elementoOndeVoceEsta').nextElementSibling);
 console.log(document.getElementById('pai').children[2]);
+
+//parte 2
+let irmao = document.createElement('section');
+let pai = document.querySelector('#pai');
+pai.appendChild(irmao);
+
+let paragrafo = document.createElement('p');
+document.querySelector('#elementoOndeVoceEsta').appendChild(paragrafo);
+
+document.querySelector('#primeiroFilhoDoFilho').appendChild(paragrafo);
+console.log(document.getElementById('primeiroFilhoDoFilho').firstElementChild.parentElement.parentElement.nextElementSibling);
