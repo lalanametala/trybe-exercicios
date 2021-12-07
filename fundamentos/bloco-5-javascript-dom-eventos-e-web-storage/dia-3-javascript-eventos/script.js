@@ -41,3 +41,20 @@ function botaoFeriados (feriados) {
     parentDiv.appendChild(botaoHoliday);
 }
 botaoFeriados ('Feriados');
+
+const botaoDeFeriado = document.querySelector('#btn-holiday');
+let apertado = false;
+botaoDeFeriado.addEventListener('click', function(event){
+    let diasFeriado = document.querySelectorAll('.holiday');
+    if (!apertado){
+        for (let elemento of diasFeriado) {
+            elemento.style.backgroundColor = 'green';
+            apertado=true;                  
+        }
+    } else {
+        for (let elemento of diasFeriado) {
+            elemento.style.backgroundColor = 'rgb(238,238,238)';
+            apertado=false;        
+        }
+    }
+})
