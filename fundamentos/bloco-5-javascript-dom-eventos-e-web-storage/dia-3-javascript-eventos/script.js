@@ -58,3 +58,12 @@ botaoDeFeriado.addEventListener('click', function(event){
         }
     }
 })
+
+function botaoSexta (sexta) {
+    const parentDiv = document.querySelector('.buttons-container');
+    const botaoFriday = document.createElement('button');
+    botaoFriday.innerText = sexta;
+    botaoFriday.id = 'btn-friday';
+    parentDiv.appendChild(botaoFriday);
+}
+botaoSexta ('Sexta-feira');
