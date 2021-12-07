@@ -32,3 +32,12 @@ function criaDias () {
     }
 }
 criaDias();
+
+function botaoFeriados (feriados) {
+    const parentDiv = document.querySelector('.buttons-container');
+    const botaoHoliday = document.createElement('button');
+    botaoHoliday.innerText = feriados;
+    botaoHoliday.id = 'btn-holiday';
+    parentDiv.appendChild(botaoHoliday);
+}
+botaoFeriados ('Feriados');
