@@ -18,12 +18,16 @@ document.querySelector('#primeiroFilhoDoFilho').appendChild(paragrafo);
 console.log(document.getElementById('primeiroFilhoDoFilho').firstElementChild.parentElement.parentElement.nextElementSibling);
 
 //parte 3
-let paiDoPai = document.querySelector('#paiDoPai').childNodes;
-
-for (let no of paiDoPai) {
-    if (!(no.id.contains('pai') && no.id.contains('elementoOndeVoceEsta') && no.id.contains('primeiroFilhoDoFilho'))){
-        paiDoPai.removeChild(no);
+pai = document.querySelector('#pai');
+for (let index = pai.childNodes.length-1; index>=0; index -=1){
+    let filhoAtual = pai.childNodes[index];
+    console.log (filhoAtual);
+    if (filhoAtual.id !== 'elementoOndeVoceEsta'){
+        filhoAtual.remove();
     }
 }
+
+let segundoEUltimoFilhoDoFilho = document.querySelector('#segundoEUltimoFilhoDoFilho');
+segundoEUltimoFilhoDoFilho.remove();
 
 
