@@ -67,3 +67,26 @@ function botaoSexta (sexta) {
     parentDiv.appendChild(botaoFriday);
 }
 botaoSexta ('Sexta-feira');
+
+const botaoDeSexta = document.querySelector('#btn-friday');
+let btnFridayApertado = false;
+let diasSexta = document.querySelectorAll('.friday');
+let arraYofSextas = [];
+for (let elemento of diasSexta){
+    let texto = elemento.innerText;
+    arraYofSextas.push(texto);
+}
+botaoDeSexta.addEventListener('click', function(event){
+    
+    if (!btnFridayApertado){
+        for (let elemento of diasSexta) {
+            elemento.innerText = 'SEXTOU!';                              
+        }
+        btnFridayApertado=true;
+    } else {
+        for (let indice=0; indice< diasSexta.length; indice+=1) {
+            diasSexta[indice].innerText=arraYofSextas[indice];                  
+        }
+        btnFridayApertado=false;  
+    }
+})
