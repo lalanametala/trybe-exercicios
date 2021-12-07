@@ -116,10 +116,22 @@ function tarefaPersonalizada (tarefa) {
 tarefaPersonalizada('Cozinhar');
 
 function colorir (color) {
-    const fundo = document.createElement('div')
-    fundo.className = 'task';
-    fundo.style.backgroundColor = color;
-    divMyTasks.appendChild(fundo);
+    let taskColor = document.createElement('div')
+    taskColor.className = 'task';
+    taskColor.style.backgroundColor = color;
+    divMyTasks.appendChild(taskColor);
 }
 
 colorir('green');
+
+let divColorida = document.querySelector('.task');
+let isSelected = false;
+divColorida.addEventListener('click', function(event){
+    if (!isSelected){
+        event.target.classList.add('selected');
+        isSelected=true;
+    } else {
+        event.target.classList.remove('selected');
+        isSelected=false;
+    }
+})
