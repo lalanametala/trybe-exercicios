@@ -90,3 +90,19 @@ botaoDeSexta.addEventListener('click', function(event){
         btnFridayApertado=false;  
     }
 })
+
+let dia = document.querySelector('#days');
+
+function enlargeDay() {
+    dia.addEventListener('mouseover', function(event){
+    event.target.style.fontSize = '30px';
+    })
+}
+enlargeDay();
+
+function shrinkDay() {
+    dia.addEventListener('mouseout', function(event){
+        event.target.style.fontSize = '20px';
+    })
+}
+shrinkDay();
