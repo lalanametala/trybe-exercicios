@@ -106,3 +106,11 @@ function shrinkDay() {
     })
 }
 shrinkDay();
+
+function tarefaPersonalizada (tarefa) {
+    let tarefaPers = document.createElement('span');
+    tarefaPers.innerText = tarefa;
+    let divMae = document.querySelector('.my-tasks');
+    divMae.appendChild(tarefaPers);
+}
+tarefaPersonalizada('Cozinhar');
