@@ -129,9 +129,26 @@ let isSelected = false;
 divColorida.addEventListener('click', function(event){
     if (!isSelected){
         event.target.classList.add('selected');
+        event.target.innerText='X';
         isSelected=true;
     } else {
         event.target.classList.remove('selected');
+        event.target.innerText='';
         isSelected=false;
     }
 })
+
+let dayIsSelected = false;
+function clickDayTask() {
+    dia.addEventListener('click', function(event){
+        if (!dayIsSelected){
+            let corDeFundo = document.querySelector('.selected').style.backgroundColor;
+            event.target.style.color = corDeFundo;
+            dayIsSelected=true;
+        } else {
+            event.target.style.color = 'rgb(119,119,119)';
+            dayIsSelected=false;
+        }
+    })
+}
+clickDayTask();
