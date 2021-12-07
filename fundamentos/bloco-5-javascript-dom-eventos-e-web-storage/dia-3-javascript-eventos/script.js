@@ -107,10 +107,19 @@ function shrinkDay() {
 }
 shrinkDay();
 
+let divMyTasks = document.querySelector('.my-tasks');
 function tarefaPersonalizada (tarefa) {
     let tarefaPers = document.createElement('span');
-    tarefaPers.innerText = tarefa;
-    let divMae = document.querySelector('.my-tasks');
-    divMae.appendChild(tarefaPers);
+    tarefaPers.innerText = tarefa;    
+    divMyTasks.appendChild(tarefaPers);
 }
 tarefaPersonalizada('Cozinhar');
+
+function colorir (color) {
+    const fundo = document.createElement('div')
+    fundo.className = 'task';
+    fundo.style.backgroundColor = color;
+    divMyTasks.appendChild(fundo);
+}
+
+colorir('green');
