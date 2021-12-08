@@ -152,3 +152,32 @@ function clickDayTask() {
     })
 }
 clickDayTask();
+
+let textoCompromisso = document.querySelector('#task-input');
+let listaDeCompromissos = document.querySelector('.task-list');
+let botaoAdd = document.querySelector('#btn-add');
+
+botaoAdd.addEventListener('click', function(){
+    if (textoCompromisso.value.length>0){
+        let novaLi = document.createElement('li');
+        novaLi.innerText=textoCompromisso.value;
+        listaDeCompromissos.appendChild(novaLi);
+        textoCompromisso.value='';
+    } else {
+        alert('Erro! Campo vazio!');
+    }
+})
+
+textoCompromisso.addEventListener('keyup', function(event){
+    if (event.key === 'Enter'){
+        if (textoCompromisso.value.length>0){
+            let novaLi = document.createElement('li');
+            novaLi.innerText=textoCompromisso.value;
+            listaDeCompromissos.appendChild(novaLi);
+            textoCompromisso.value='';
+        } else {
+            alert('Erro! Campo vazio!');
+        }
+    }
+})
+
