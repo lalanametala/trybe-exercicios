@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <form action="" method="get">
+        <fieldset>
+            <label for="full-name">Nome Completo: </label>
+            <input type="text" name="full-name" id="full-name" maxlength="40" required>
+            <label for="email">E-mail: </label>
+            <input type="text" name="email" id="email" maxlength="50" required>
+            <label for="cpf">CPF: </label>
+            <input type="text" name="cpf" id="cpf" maxlength="11" required>
+            <label for="address">Endereço: </label>
+            <input type="text" name="address" id="address" maxlength="200" required>
+            <label for="city">Cidade: </label>
+            <input type="text" name="city" id="city" maxlength="28" required>
+            <label for="state">Estado: </label>
+            <select name="state" id="state" required></select>
+            <input type="radio" name="tipo-residencia" id="casa" checked>
+            <label for="casa">Casa</label>
+            <input type="radio" name="tipo-residencia" id="apartamento">
+            <label for="apartamento">Apartamento</label>
+        </fieldset>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
