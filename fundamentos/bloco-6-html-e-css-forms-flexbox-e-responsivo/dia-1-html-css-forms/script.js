@@ -51,7 +51,7 @@ function dateCheck (){
     const dateText = dataInicio.value;
     const dateArray = dataInicio.value.match(/\d+/g);
     if (dateText[2]!='/' || dateText[5]!='/'){
-        window.alert('Data inválida!');
+        window.alert('Formato inválido!');
         return true;
     } else if (dateArray===null){
         window.alert('Data inválida!');
