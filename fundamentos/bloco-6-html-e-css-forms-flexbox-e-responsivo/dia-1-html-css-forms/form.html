@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="" method="get">
-        <fieldset>
+        <fieldset class="field">
             <label for="full-name">Nome Completo: </label>
             <input type="text" name="full-name" id="full-name" maxlength="40" required>
             <label for="email">E-mail: </label>
@@ -26,6 +26,20 @@
             <input type="radio" name="tipo-residencia" id="apartamento">
             <label for="apartamento">Apartamento</label>
         </fieldset>
+
+        <fieldset class="field">
+            <label for="resume">Resumo do Currículo</label>
+            <textarea name="resume" id="resume" maxlength="1000" required></textarea>
+            <label for="cargo">Cargo: </label>
+            <input type="text" name="cargo" id="cargo" maxlength="40" required>
+            <label for="descricao-cargo">Descrição do cargo: </label>
+            <input type="text" name="descricao-cargo" id="descricao-cargo" maxlength="500" required>
+            <label for="data-inicio">Data de início: </label>
+            <input type="text" name="data-inicio" id="data-inicio" maxlength="10" required placeholder="dd/mm/aaaa">
+        </fieldset>
+        <button type="submit" id="send">Enviar</button>
+        <button type="reset" id="clear">Limpar</button>
+        <div id="result"></div>
     </form>
     <script src="script.js"></script>
 </body>
