@@ -11,39 +11,59 @@
 <body>
     <form action="" method="get" id="form">
         <div class="container form-check">
-            <label class="form-label"for="full-name">Nome Completo: </label>
-            <input class="form-control" type="text" name="full-name" id="full-name" maxlength="40" required>
-            <label class="form-label"for="email">E-mail: </label>
-            <input class="form-control" type="text" name="email" id="email" maxlength="50" required>
-            <label class="form-label"for="cpf">CPF: </label>
-            <input class="form-control" type="text" name="cpf" id="cpf" maxlength="11" required>
-            <label class="form-label"for="address">Endereço: </label>
-            <input class="form-control" type="text" name="address" id="address" maxlength="200" required>
-            <label class="form-label"for="city">Cidade: </label>
-            <input class="form-control" type="text" name="city" id="city" maxlength="28" required>
-            <label class="form-label"for="state">Estado: </label>
-            <select name="state" id="state" class="form-select" required></select>
+            <div>
+                <label class="form-label"for="full-name">Nome Completo: </label>
+                <input class="form-control field" type="text" name="full-name" id="full-name" maxlength="40" required>
+            </div>
+            <div> 
+                <label class="form-label"for="email">E-mail: </label>
+                <input class="form-control field" type="text" name="email" id="email" maxlength="50" required>
+            </div>
+            <div>
+                <label class="form-label"for="cpf">CPF: </label>
+                <input class="form-control field" type="text" name="cpf" id="cpf" maxlength="11" required>
+            </div>
+            <div>
+                <label class="form-label"for="address">Endereço: </label>
+                <input class="form-control field" type="text" name="address" id="address" maxlength="200" required>
+            </div>
+            <div>
+                <label class="form-label"for="city">Cidade: </label>
+                <input class="form-control field" type="text" name="city" id="city" maxlength="28" required>
+            </div>
+            <div>
+                <label class="form-label"for="state">Estado: </label>
+                <select name="state" id="state" class="form-select field" required></select>
+            </div>
             <div class="container form-check" id="residencia-group">
                 <div class="container form-check"> 
-                    <input class="form-check-input" type="radio" name="tipo-residencia" id="casa" checked>
+                    <input class="form-check-input field" type="radio" name="tipo-residencia" id="casa" value="Casa" checked>
                     <label class="form-check-label"for="casa">Casa</label>
                 </div>
                 <div class="container form-check"> 
-                    <input class="form-check-input" type="radio" name="tipo-residencia" id="apartamento">
+                    <input class="form-check-input field" type="radio" name="tipo-residencia" id="apartamento" value="Apartamento">
                     <label class="form-check-label"for="apartamento">Apartamento</label>
                 </div>
             </div>
         </div>
 
         <div class="container form-check">
-            <label class="form-label"for="resume">Resumo do Currículo</label>
-            <textarea name="resume" id="resume" maxlength="1000" class="form-control" rows="7" required></textarea>
-            <label class="form-label"for="cargo">Cargo: </label>
-            <input class="form-control" type="text" name="cargo" id="cargo" maxlength="40" required>
-            <label class="form-label"for="descricao-cargo">Descrição do cargo: </label>
-            <input class="form-control" type="text" name="descricao-cargo" id="descricao-cargo" maxlength="500" required>
-            <label class="form-label"for="data-inicio">Data de início: </label>
-            <input class="form-control" type="text" name="data-inicio" id="data-inicio" maxlength="10" required placeholder="dd/mm/aaaa">
+            <div>
+                <label class="form-label"for="resume">Resumo do Currículo</label>
+                <textarea name="resume" id="resume" maxlength="1000" class="form-control field" rows="7" required></textarea>
+            </div>
+            <div>
+                <label class="form-label"for="cargo">Cargo: </label>
+                <input class="form-control field" type="text" name="cargo" id="cargo" maxlength="40" required>
+            </div>
+            <div>
+                <label class="form-label"for="descricao-cargo">Descrição do cargo: </label>
+                <input class="form-control field" type="text" name="descricao-cargo" id="descricao-cargo" maxlength="500" required>
+            </div>
+            <div>
+                <label class="form-label"for="data-inicio">Data de início: </label>
+                <input class="form-control field" type="text" name="data-inicio" id="data-inicio" maxlength="10" required placeholder="dd/mm/aaaa">
+            </div>
         </div>
         <div class="container form-check">
             <button type="submit" id="send" class="btn btn-success">Enviar</button>

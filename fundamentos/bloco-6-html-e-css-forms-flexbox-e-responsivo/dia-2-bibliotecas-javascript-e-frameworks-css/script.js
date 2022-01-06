@@ -1,10 +1,11 @@
 const states = document.querySelector("#state");
-const sendButton = document.querySelector("#send");
 const clearButton = document.querySelector("#clear");
 let resultDiv = document.querySelector("#result");
-let dataInicio = document.getElementById('data-inicio').DatePickerX.init();
-
-
+let allFields = document.querySelectorAll('.field');
+let dataInicio = document.getElementById('data-inicio').DatePickerX.init({
+    format: 'dd/mm/yyyy'
+});
+     
 statesLoad();
 
 function validateAll(){
@@ -17,9 +18,6 @@ function validateAll(){
         },
         focusInvalidField: true,
         lockForm: true,
-        tooltip: {
-            position: 'bottom'
-        }
       });
     validate
     .addField('#full-name', [
@@ -54,6 +52,16 @@ function validateAll(){
         {
             rule: 'maxLength',
             value: 11,
+        }
+    ])
+    .addField('#address', [
+        {
+            rule: 'required',
+            errorMessage: 'Preencher endereço',
+        },
+        {
+            rule: 'maxLength',
+            value: 200,
         }
     ])
     .addField('#city', [
@@ -111,7 +119,7 @@ function validateAll(){
     ])    
     .onSuccess((event) => {
         event.preventDefault();
-        resultDiv.innerHTML='RESULTADO';        
+        loadContent();        
     });
 }
 
@@ -154,11 +162,51 @@ function statesLoad (){
     }
 }
 function loadContent(){
-    let conteudo = document.querySelectorAll(".field");
-    let conteudo2 = conteudo[0].children;
-    let conteudo3 = conteudo[1].children;
-    for (let i=0;i<conteudo2.length; i+=1){
-        
+    for (let i=0;i<allFields.length; i+=1){        
+        switch(allFields[i].id){
+            case 'full-name':
+                makeParagraph('Nome Completo: '+allFields[i].value);
+                break;
+            case 'email':
+                makeParagraph('E-mail: '+allFields[i].value);
+                break;
+            case 'cpf':
+                makeParagraph('CPF: '+allFields[i].value);
+                break;
+            case 'address':
+                makeParagraph('Endereço: '+allFields[i].value);
+                break;
+            case 'city':
+                makeParagraph('Cidade: '+allFields[i].value);
+                break;
+            case 'state':
+                makeParagraph('Estado: '+allFields[i].value);
+                break;
+            case 'casa':
+                if (allFields[i].checked){
+                    makeParagraph('Residência: '+allFields[i].value);
+                }
+                break;
+            case 'apartamento':
+                if (allFields[i].checked){
+                    makeParagraph('Residência: '+allFields[i].value);
+                }
+                break;
+            case 'resume':
+                makeParagraph('Resumo do currículo: '+allFields[i].value);
+                break; 
+            case 'cargo':
+                makeParagraph('Cargo: '+allFields[i].value);
+                break;
+            case 'descricao-cargo':
+                makeParagraph('Descrição do cargo: '+allFields[i].value);
+                break;
+            case 'data-inicio':
+                let data = document.getElementById('data-inicio').DatePickerX.getValue();
+                console.log(data);
+                makeParagraph('Data de início: '+ data);
+                break;                                                
+        } 
     }
 }
 validateAll();
@@ -167,4 +215,9 @@ clearButton.addEventListener('click', function(){
     resultDiv.innerHTML='';
 })
 
-dataInicio.DatePickerX.init();
+function makeParagraph(text){
+    let newP = document.createElement('p');
+    newP.innerText = text;
+    resultDiv.appendChild(newP);
+}
+
