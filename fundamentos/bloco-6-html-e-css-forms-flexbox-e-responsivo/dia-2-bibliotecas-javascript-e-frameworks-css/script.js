@@ -1,9 +1,120 @@
 const states = document.querySelector("#state");
 const sendButton = document.querySelector("#send");
 const clearButton = document.querySelector("#clear");
-let allInputs = document.querySelectorAll("input");
 let resultDiv = document.querySelector("#result");
-let dataInicio = document.querySelector("#data-inicio");
+let dataInicio = document.getElementById('data-inicio').DatePickerX.init();
+
+
+statesLoad();
+
+function validateAll(){
+    
+    const validate = new window.JustValidate('#form', {
+        errorFieldCssClass: 'is-invalid',
+        errorLabelStyle: {
+          fontSize: '14px',
+          color: '#dc3545',
+        },
+        focusInvalidField: true,
+        lockForm: true,
+        tooltip: {
+            position: 'bottom'
+        }
+      });
+    validate
+    .addField('#full-name', [
+        {
+            rule: 'required',
+            errorMessage: 'Preencher nome',
+        },
+        {
+            rule: 'maxLength',
+            value: 40,
+        }
+    ])
+    .addField('#email', [
+        {
+            rule: 'required',
+            errorMessage: 'Preencher e-mail',
+        },
+        {
+            rule: 'maxLength',
+            value: 50,
+        },
+        {
+            rule:'email',
+            errorMessage: 'Formato de e-mail inválido',
+        }
+    ])
+    .addField('#cpf', [
+        {
+            rule: 'required',
+            errorMessage: 'Preencher CPF',
+        },
+        {
+            rule: 'maxLength',
+            value: 11,
+        }
+    ])
+    .addField('#city', [
+        {
+            rule: 'required',
+            errorMessage: 'Preencher cidade',
+        },
+        {
+            rule: 'maxLength',
+            value: 28,
+        }
+    ])
+    .addRequiredGroup('#residencia-group').onSuccess((event) => {
+        console.log('Validation passes and form submitted', event);
+    })
+    .addField('#resume', [
+        {
+            rule: 'required',
+            errorMessage: 'Preencher resumo do currículo',
+        },
+        {
+            rule: 'maxLength',
+            value: 1000,
+        }
+    ])
+    .addField('#cargo', [
+        {
+            rule: 'required',
+            errorMessage: 'Preencher cargo',
+        },
+        {
+            rule: 'maxLength',
+            value: 40,
+        }
+    ])
+    .addField('#descricao-cargo', [
+        {
+            rule: 'required',
+            errorMessage: 'Preencher descrição do cargo',
+        },
+        {
+            rule: 'maxLength',
+            value: 500,
+        }
+    ])
+    .addField('#data-inicio', [
+        {
+            rule: 'required',
+            errorMessage: 'Preencher data de início',
+        },
+        {
+            rule: 'maxLength',
+            value: 10,
+        }
+    ])    
+    .onSuccess((event) => {
+        event.preventDefault();
+        resultDiv.innerHTML='RESULTADO';        
+    });
+}
+
 
 function statesLoad (){
     const statesArray = [
@@ -42,35 +153,6 @@ function statesLoad (){
         states.appendChild(newState);
     }
 }
-
-statesLoad();
-
-
-
-function dateCheck (){
-    const dateText = dataInicio.value;
-    const dateArray = dataInicio.value.match(/\d+/g);
-    if (dateText[2]!='/' || dateText[5]!='/'){
-        window.alert('Formato inválido!');
-        return true;
-    } else if (dateArray===null){
-        window.alert('Data inválida!');
-        return true;
-    } else if (dateArray[0]<=0||dateArray[0]>31){
-        window.alert('Dia inválido!');
-        return true;
-    } else if (dateArray[1]<0||dateArray[1]>12){
-        window.alert('Mês inválido!');
-        return true;
-    } else if (dateArray[2]<0){
-        window.alert('Ano inválido!');
-        return true;
-    } else {
-        return false;
-    }
-
-}
-
 function loadContent(){
     let conteudo = document.querySelectorAll(".field");
     let conteudo2 = conteudo[0].children;
@@ -79,24 +161,10 @@ function loadContent(){
         
     }
 }
-
-sendButton.addEventListener('click', function(event){
-    event.preventDefault();
-    for (let i=0;i<allInputs.length;i+=1){
-        if (allInputs[i].value==""){
-            resultDiv.innerHTML='Favor preencher todos os campos!'
-        } else if (allInputs[i].id=='data-inicio' && dateCheck()){
-            resultDiv.innerHTML='Data inválida'            
-        } else {
-            resultDiv.innerHTML='RESULTADO'
-        }
-    }
-})
+validateAll();
 
 clearButton.addEventListener('click', function(){
     resultDiv.innerHTML='';
 })
 
-dataInicio.addEventListener('keyup', function(event){
-
-})
+dataInicio.DatePickerX.init();
