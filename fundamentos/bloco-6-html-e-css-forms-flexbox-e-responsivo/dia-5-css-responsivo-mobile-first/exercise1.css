@@ -40,6 +40,9 @@
   
   section {
     margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   figure {
@@ -58,5 +61,56 @@
   }
 
   @media screen and (min-width: 768px) {
+    body {
+        background-color: ghostwhite;
+        margin: 5% 10%;
+    }
+    article {
+        font-size: 1.8rem;
+    }
+    h1 {
+        font-size: 3rem;
+      }
       
+    h2 {
+        font-size: 2.5rem;
+    }
+    img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-around;
+    }
+    figure {
+        width: 48%;
+    }
+    figcaption {
+        width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    body {
+        background-color:lightsteelblue;
+        margin: 5% 10%;
+        max-width: 90%;
+    }
+    figcaption {
+        font-size: 2rem;
+    }
+    article {
+        font-size: 2rem;
+    }
+    h1 {
+        font-size: 4rem;
+      }
+      
+    h2 {
+        font-size: 3rem;
+    }
   }
