@@ -1,0 +1,30 @@
+html {
+    box-sizing: border-box;
+}
+  
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+header p {
+    margin-bottom: 5px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5px;
+    list-style: none;
+}
+
