@@ -71,3 +71,35 @@ console.log(getValueByNumber(lesson1, 0));
 const verifyPair = (objeto, chave, valor) => objeto[chave] === valor;
 console.log(verifyPair(lesson3, 'turno', 'noite'));
 console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
+
+//Bonus 1
+const studentCounter = (subject) => {
+  const entriesArray = Object.entries(allLessons);
+  let studentCount = 0;
+  for (let index = 0; index < entriesArray.length; index += 1) {
+    let currentObject = entriesArray[index][1];
+    if (currentObject.materia === subject) {
+      studentCount += currentObject.numeroEstudantes;
+    } 
+  }
+  return studentCount;
+}
+console.log(studentCounter('Matemática'));
+
+const createReport = (allLessons, teacher) => {
+  const entriesArray = Object.entries(allLessons);
+  let teacherObject = {
+    professor: teacher,
+    aulas: [],
+    estudantes: 0
+  };
+  for (let index = 0; index < entriesArray.length; index += 1) {
+    let currentObject = entriesArray[index][1];
+    if (currentObject.professor === teacher) {
+      teacherObject.aulas.push(currentObject.materia);
+      teacherObject.estudantes += currentObject.numeroEstudantes;
+    } 
+  }
+  return teacherObject;
+}
+console.log(createReport(allLessons, 'Maria Clara'));
