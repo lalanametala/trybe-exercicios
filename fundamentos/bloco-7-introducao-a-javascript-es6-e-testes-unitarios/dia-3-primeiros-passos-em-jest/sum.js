@@ -24,9 +24,48 @@ function myFizzBuzz(num) {
     return num;
 }
 
+function encode(message) {
+  message = message.split('');
+  for (let index = 0; index < message.length; index += 1){
+    if (message[index]==='a'){
+        message[index]=1;
+    } else if (message[index]=='e'){
+      message[index]=2;
+    } else if (message[index]=='i'){
+      message[index]=3;
+    }  else if (message[index]=='o'){
+      message[index]=4;
+    }  else if (message[index]=='u'){
+      message[index]=5;
+    } 
+  }
+  message=message.join('');
+  return message;
+}
+
+function decode(decodedMessage) {
+  decodedMessage=decodedMessage.split('');
+  for (let index=0; index<decodedMessage.length;index+=1){
+    if (decodedMessage[index]==1){
+      decodedMessage[index]='a';
+    } else if (decodedMessage[index]==2){
+      decodedMessage[index]='e';
+    } else if (decodedMessage[index]==3){
+      decodedMessage[index]='i';
+    }  else if (decodedMessage[index]==4){
+      decodedMessage[index]='o';
+    }  else if (decodedMessage[index]==5){
+      decodedMessage[index]='u';
+    } 
+  }
+  decodedMessage=decodedMessage.join('');
+  return decodedMessage;
+}
 
 module.exports = { 
-    sum,
-    myRemove,
-    myFizzBuzz
+  sum,
+  myRemove,
+  myFizzBuzz,
+  encode,
+  decode
 };

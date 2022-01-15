@@ -1,7 +1,9 @@
 const { 
     sum,
     myRemove,
-    myFizzBuzz
+    myFizzBuzz,
+    encode,
+    decode
 } = require('./sum');
 
 describe('sums two values', () => {
@@ -45,3 +47,36 @@ describe('A função myFizzBuzz(num) recebe um número num e retorna "fizzbuzz" 
         expect(myFizzBuzz('3, 5')).toBe(false);
     });
 })
+
+describe('removes element from array', () => {
+  //teste1
+  test('encode() é uma função', () => {
+    expect(typeof encode).toBe('function');
+  });
+  //teste2
+  test('encode("a") retorna 1', () => {
+    expect(encode('a'),).toBe('1');
+  });
+  test('encode("e") retorna 2', () => {
+    expect(encode('e')).toBe("2");
+  });
+  test('encode("i") retorna 3', () => {
+    expect(encode('i')).toBe("3");
+  });
+  test('encode("o") retorna 4', () => {
+    expect(encode('o')).toBe("4");
+  });
+  test('encode("u") retorna 5', () => {
+    expect(encode('u')).toBe("5");
+  });
+  //teste3
+
+  //teste4
+  test('a string que é retornada pelas funções têm o mesmo número de caracteres que a string passada como parâmetro', () => {
+    expect(encode('aeiou').length).toBe('aeiou'.length);
+  })
+});
+
+test('decode() é uma função', () => {
+  expect(typeof decode).toBe('function');
+});
