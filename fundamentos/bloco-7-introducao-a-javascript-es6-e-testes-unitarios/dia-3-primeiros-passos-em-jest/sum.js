@@ -62,10 +62,27 @@ function decode(decodedMessage) {
   return decodedMessage;
 }
 
+const techList = (array, personName) => {
+  if (array.length === 0) {
+    return 'Vazio!';
+  }
+  array = array.sort();
+  let sortedTechList = [];
+  for (let index = 0; index < array.length; index += 1) {
+    let newObject = {
+      tech: array[index],
+      name: personName
+    };
+    sortedTechList.push(newObject);
+  }
+  return sortedTechList;
+};
+
 module.exports = { 
   sum,
   myRemove,
   myFizzBuzz,
   encode,
-  decode
+  decode,
+  techList
 };

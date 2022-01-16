@@ -3,7 +3,8 @@ const {
     myRemove,
     myFizzBuzz,
     encode,
-    decode
+    decode,
+    techList
 } = require('./sum');
 
 describe('sums two values', () => {
@@ -108,4 +109,40 @@ describe('decodifica uma mensagem de números para letras', () => {
   test('a string que é retornada pelas funções têm o mesmo número de caracteres que a string passada como parâmetro', () => {
     expect(decode('12345').length).toBe('12345'.length);
   })
+});
+
+describe('Testa a função techList', () => {
+  it('Testa se a função techList é definida', () => {
+    expect(techList).toBeDefined();
+  });
+  it('Testa se techList é uma função', () => {
+    expect(typeof techList).toBe('function');
+  });
+  it('Lista com 5 tecnologias deve retornar uma lista de objetos ordenados', () => {
+    expect(techList(['React', 'Jest', 'HTML', 'CSS', 'JavaScript'], 'Lucas')).toEqual([
+      {
+        tech: 'CSS',
+        name: 'Lucas'
+      },
+      {
+        tech: 'HTML',
+        name: 'Lucas'
+      },
+      {
+        tech: 'JavaScript',
+        name: 'Lucas'
+      },
+      {
+        tech: 'Jest',
+        name: 'Lucas'
+      },
+      {
+        tech: 'React',
+        name: 'Lucas'
+      }
+    ]);
+  });
+  it('Lista com 0 tecnologias deve retornar uma mensagem de erro "Vazio!"', () => {
+    expect(techList([], 'Lucas')).toBe('Vazio!');
+  });
 });
