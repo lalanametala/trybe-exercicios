@@ -78,11 +78,23 @@ const techList = (array, personName) => {
   return sortedTechList;
 };
 
+const hydrate = (drinks) => {
+  const numDrinks = drinks.match(/\d+/g);
+  let count = 0;
+  for (let num of numDrinks) {
+    count += parseInt(num);
+  }
+  let finalMessage = '';
+  count === 1 ? finalMessage = `${count} copo de água` : finalMessage = `${count} copos de água`;
+  return finalMessage;
+};
+
 module.exports = { 
   sum,
   myRemove,
   myFizzBuzz,
   encode,
   decode,
-  techList
+  techList,
+  hydrate
 };
