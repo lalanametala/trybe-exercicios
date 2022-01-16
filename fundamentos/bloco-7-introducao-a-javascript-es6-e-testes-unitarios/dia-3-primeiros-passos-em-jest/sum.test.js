@@ -5,7 +5,8 @@ const {
     encode,
     decode,
     techList,
-    hydrate
+    hydrate,
+    searchEmployee
 } = require('./sum');
 
 describe('sums two values', () => {
@@ -161,5 +162,28 @@ describe('Testa a função hydrate', () => {
     expect(hydrate('2 shots de tequila, 2 cervejas e 1 corote')).toBe('5 copos de água');
     expect(hydrate('1 copo de catuaba, 1 cervejas e 1 copo de vinho')).toBe('3 copos de água');
     expect(hydrate('4 caipirinhas e 2 cervejas')).toBe('6 copos de água');
+  });
+});
+
+describe('Testa a função searchEmployee', () => {
+  it('Testa se a função searchEmployee é definida', () => {
+    expect(searchEmployee).toBeDefined();
+  });
+  it('Testa se searchEmployee é uma função', () => {
+    expect(typeof searchEmployee).toBe('function');
+  });
+  it('Ao receber um ID e uma informação, retornar o valor da informação', () => {
+    expect(searchEmployee('1256-4', 'firstName')).toBe('Linda');
+    expect(searchEmployee('1256-4', 'lastName')).toBe('Bezos');
+    expect(searchEmployee('1256-4', 'specialities')).toEqual(['Hooks', 'Context API', 'Tailwind CSS']);
+    expect(searchEmployee('8579-6', 'firstName')).toBe('Ana');
+    expect(searchEmployee('8579-6', 'lastName')).toBe('Gates');
+    expect(searchEmployee('8579-6', 'specialities')).toEqual(['UX', 'Design']);
+  })
+  it('Testa se a id consta no quadro de funcionários', () => {
+    expect(() => { searchEmployee('353545657', 'lastName') }).toThrowError(new Error('ID não identificada'));
+  });
+  it('Testa se a informação pedida consta no quadro de funcionários', () => {
+    expect(() => { searchEmployee('8579-6', 'age') }).toThrowError(new Error('Informação indisponível'));
   });
 });
