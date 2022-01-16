@@ -48,7 +48,7 @@ describe('A função myFizzBuzz(num) recebe um número num e retorna "fizzbuzz" 
     });
 })
 
-describe('removes element from array', () => {
+describe('codifica uma mensagem de letras para números', () => {
   //teste1
   test('encode() é uma função', () => {
     expect(typeof encode).toBe('function');
@@ -69,14 +69,43 @@ describe('removes element from array', () => {
   test('encode("u") retorna 5', () => {
     expect(encode('u')).toBe("5");
   });
-  //teste3
-
   //teste4
+  test('encode("f") retorna "f"', () => {
+    expect(encode('f')).toBe('f');
+  });
+  //teste5
   test('a string que é retornada pelas funções têm o mesmo número de caracteres que a string passada como parâmetro', () => {
     expect(encode('aeiou').length).toBe('aeiou'.length);
   })
 });
 
-test('decode() é uma função', () => {
-  expect(typeof decode).toBe('function');
+describe('decodifica uma mensagem de números para letras', () => {
+  //teste1
+  test('decode() é uma função', () => {
+    expect(typeof decode).toBe('function');
+  });
+  //teste2
+  test('decode("1") retorna a', () => {
+    expect(decode('1'),).toBe('a');
+  });
+  test('decode("2") retorna e', () => {
+    expect(decode('2')).toBe("e");
+  });
+  test('decode("3") retorna i', () => {
+    expect(decode('3')).toBe("i");
+  });
+  test('decode("4") retorna o', () => {
+    expect(decode('4')).toBe("o");
+  });
+  test('decode("5") retorna u', () => {
+    expect(decode('5')).toBe("u");
+  });
+  //teste4
+  test('decode("7") retorna "7"', () => {
+    expect(decode('7')).toBe('7');
+  });
+  //teste5
+  test('a string que é retornada pelas funções têm o mesmo número de caracteres que a string passada como parâmetro', () => {
+    expect(decode('12345').length).toBe('12345'.length);
+  })
 });
