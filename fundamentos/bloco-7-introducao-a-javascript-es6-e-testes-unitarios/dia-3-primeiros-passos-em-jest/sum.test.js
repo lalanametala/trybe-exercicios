@@ -181,9 +181,11 @@ describe('Testa a função searchEmployee', () => {
     expect(searchEmployee('8579-6', 'specialities')).toEqual(['UX', 'Design']);
   })
   it('Testa se a id consta no quadro de funcionários', () => {
-    expect(() => { searchEmployee('353545657', 'lastName') }).toThrowError(new Error('ID não identificada'));
+    expect(() => { searchEmployee('353545657', 'lastName') }).toThrow();
+    expect(() => { searchEmployee('353545657', 'lastName') }).toThrowError('ID não identificada');
   });
   it('Testa se a informação pedida consta no quadro de funcionários', () => {
-    expect(() => { searchEmployee('8579-6', 'age') }).toThrowError(new Error('Informação indisponível'));
+    expect(() => { searchEmployee('8579-6', 'age') }).toThrow();
+    expect(() => { searchEmployee('8579-6', 'age') }).toThrowError('Informação indisponível');
   });
 });
