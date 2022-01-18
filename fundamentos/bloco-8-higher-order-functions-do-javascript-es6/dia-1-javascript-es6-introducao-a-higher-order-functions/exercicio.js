@@ -45,3 +45,22 @@ const drawResult = (bettedNumber, drawCheck) => {
 }
 
 console.log(drawResult(5, drawCheck));
+
+// Exercício 3
+const RIGHT_ANSWERS = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
+const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
+
+const answerChecker = (rightAnswers, givenAnswers) => {
+  let counter = 0;
+  for (let index = 0; index < rightAnswers.length; index += 1) {
+    if (givenAnswers[index] === rightAnswers[index]) {
+      counter += 1;
+    } else if (givenAnswers[index] !== 'N.A') {
+      counter -= 0.5;
+    }
+  }
+  return counter;
+}
+const graderFunction = (rightAnswers, givenAnswers, answerChecker) => answerChecker(rightAnswers,givenAnswers);
+
+console.log(graderFunction(RIGHT_ANSWERS, STUDENT_ANSWERS, answerChecker));
