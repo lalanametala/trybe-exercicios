@@ -1,3 +1,4 @@
+// Exercício 1
 const generateEmail = (anyName) => {
   const splittedName = anyName.toLowerCase().split(' ');
   let email = '';
@@ -29,3 +30,18 @@ const newEmployees = (myFunction) => {
 };
 
 console.log(newEmployees(employeeInfo));
+
+// Exercício 2
+const drawCheck = (bettedNumber, drawnNumber) => {
+  if (bettedNumber === drawnNumber) {
+    return `Parabéns! Você ganhou!`;
+  }
+  return "Tente novamente";
+}
+
+const drawResult = (bettedNumber, drawCheck) => {
+  const drawnNumber = Math.ceil(Math.random() * 5);
+   return drawCheck(bettedNumber, drawnNumber); 
+}
+
+console.log(drawResult(5, drawCheck));
