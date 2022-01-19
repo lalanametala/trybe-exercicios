@@ -1,14 +1,6 @@
 // Exercício 1
 const generateEmail = (anyName) => {
-  const splittedName = anyName.toLowerCase().split(' ');
-  let email = '';
-  for (let index = 0; index < splittedName.length; index +=1) {
-    if (index !== splittedName.length - 1) {
-      email += `${splittedName[index]}_`;
-    } else {
-      email += `${splittedName[index]}@trybe.com`;
-    }
-  }
+  const email = `${anyName.replaceAll(' ', '_').toLowerCase()}@trybe.com`;
   return email;
 }
 
@@ -64,3 +56,63 @@ const answerChecker = (rightAnswers, givenAnswers) => {
 const graderFunction = (rightAnswers, givenAnswers, answerChecker) => answerChecker(rightAnswers,givenAnswers);
 
 console.log(graderFunction(RIGHT_ANSWERS, STUDENT_ANSWERS, answerChecker));
+
+// Bônus
+const mage = {
+  healthPoints: 130,
+  intelligence: 45,
+  mana: 125,
+  damage: undefined,
+};
+  
+const warrior = {
+  healthPoints: 200,
+  strength: 30,
+  weaponDmg: 2,
+  damage: undefined,
+};
+  
+const dragon = {
+  healthPoints: 350,
+  strength: 50,
+  damage: undefined,
+};
+  
+const battleMembers = { mage, warrior, dragon };
+
+const generateRandom = (num) => Math.floor(Math.random() * num);
+
+const rangeArrayGenerator = (min, max) => {
+  let rangeArray = [];
+  for (let num = min; num <= max; num += 1) {
+    rangeArray.push(num);
+  }
+  return rangeArray;
+}
+
+const dragonDamage = () => {
+  const rangeArray = rangeArrayGenerator(15, battleMembers.dragon.strength);  
+  return rangeArray[generateRandom(rangeArray.length)];
+}
+
+const warriorDamage = () => {
+  const rangeArray = rangeArrayGenerator(battleMembers.warrior.strength, (battleMembers.warrior.strength * battleMembers.warrior.weaponDmg));  
+  return rangeArray[generateRandom(rangeArray.length)];
+}
+
+const mageTurn = () => {
+  const turnResult = {
+    manaSpent: 0,
+    damage: 'Não possui mana suficiente'
+  };
+
+  if (battleMembers.mage.mana > 15) {
+    turnResult.manaSpent = 15;
+    const intelligenceValue = battleMembers.mage.intelligence;
+    const rangeArray = rangeArrayGenerator(intelligenceValue, intelligenceValue * 2)
+    turnResult.damage = rangeArray[generateRandom(rangeArray.length)];
+  }
+  return turnResult;
+}
+
+console.log(mageTurn());
