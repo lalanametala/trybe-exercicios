@@ -66,23 +66,20 @@ function authorUnique() {
   books.forEach((element) => {
     allBirthyears.push(element.author.birthYear);
   });
-  const answer = () => {
-    let status = true;
+  let status = true;
+  allBirthyears.forEach((element) => {
+    let currentElement = element;
+    let currentElementCount = 0;
     allBirthyears.forEach((element) => {
-      let currentElement = element;
-      let currentElementCount = 0;
-      allBirthyears.forEach((element) => {
-        if (currentElement === element) {
-          currentElementCount += 1;
-        }
-        if (currentElementCount > 1) {
-          status = false;
-        }
-      });
+      if (currentElement === element) {
+        currentElementCount += 1;
+      }
+      if (currentElementCount > 1) {
+        status = false;
+      }
     });
-    return status;    
-  }
-  return answer();
+  });
+  return status;
 }
 
 console.log(authorUnique());
