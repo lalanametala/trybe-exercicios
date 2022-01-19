@@ -40,3 +40,26 @@ const verifyAges = (arr, minimumAge) => arr.every((element) => element.age >= mi
 
 console.log(verifyAges(people, 18));
 
+// Fixar SORT 1
+people.sort((a,b) => {
+  if (a.age > b.age) {
+    return 1;
+  }
+  if (a.age < b.age) {
+    return -1;
+  }
+  return 0;
+});
+console.log(people);
+
+// Fixar SORT 2
+people.sort((a,b) => {
+  if (a.age > b.age) {
+    return -1;
+  }
+  if (a.age < b.age) {
+    return 1;
+  }
+  return 0;
+});
+console.log(people);
