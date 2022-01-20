@@ -61,25 +61,27 @@ const books = [
   },
 ];
 
-function authorUnique() {
-  let allBirthyears = [];
-  books.forEach((element) => {
-    allBirthyears.push(element.author.birthYear);
-  });
-  let status = true;
-  allBirthyears.forEach((element) => {
-    let currentElement = element;
-    let currentElementCount = 0;
-    allBirthyears.forEach((element) => {
-      if (currentElement === element) {
-        currentElementCount += 1;
-      }
-      if (currentElementCount > 1) {
-        status = false;
-      }
-    });
-  });
-  return status;
-}
+// function authorUnique() {
+//   let allBirthyears = [];
+//   books.forEach((element) => {
+//     allBirthyears.push(element.author.birthYear);
+//   });
+//   let status = true;
+//   allBirthyears.forEach((element) => {
+//     let currentElement = element;
+//     let currentElementCount = 0;
+//     allBirthyears.forEach((element) => {
+//       if (currentElement === element) {
+//         currentElementCount += 1;
+//       }
+//       if (currentElementCount > 1) {
+//         status = false;
+//       }
+//     });
+//   });
+//   return status;
+// }
+
+const authorUnique = () => books.every((outerBook) => !books.some((innerBook) => innerBook.author.birthYear === outerBook.author.birthYear && innerBook.author.name !== outerBook.author.name));
 
 console.log(authorUnique());
