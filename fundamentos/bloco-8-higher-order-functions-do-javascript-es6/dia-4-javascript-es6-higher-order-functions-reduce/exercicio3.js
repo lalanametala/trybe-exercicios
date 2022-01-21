@@ -61,4 +61,13 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+const expectedResult = 43;
+
+function averageAge() {
+  return books.reduce((totalAge, currentElement, index) => {
+    let age = currentElement.releaseYear - currentElement.author.birthYear;
+    return totalAge + age;
+  }, 0) / books.length;
+}
+
+console.log(averageAge());
