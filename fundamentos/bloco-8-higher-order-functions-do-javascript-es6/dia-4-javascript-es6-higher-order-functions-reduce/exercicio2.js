@@ -68,8 +68,7 @@ function reduceNames() {
     if (index === books.length - 1) {
       return `${allNames} ${currentElement.author.name}.`
     } 
-    return `${allNames} ${currentElement.author.name},`
-        
+    return `${allNames} ${currentElement.author.name},`        
   }, '');  
 }
 
