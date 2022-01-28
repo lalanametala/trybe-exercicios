@@ -1,18 +1,12 @@
-const userFullName = ({ firstName, lastName }) => `Hello! My name is ${firstName} ${lastName}`;
-const userNationality = ({ firstName, nationality }) => `${firstName} is ${nationality}`;
-
-const delay = (maxMilliseconds = 5000) => Math.floor(Math.random() * maxMilliseconds);
-
-const getUser = (userInfo) => {
-  setTimeout(() => {
-    const user = {
-      firstName: "Ivan",
-      lastName: "Ivanovich",
-      nationality: "Russian",
-    };
-    return console.log(userInfo(user));
-  }, delay());
+const getPlanet = () => {
+  const mars = {
+    name: "Mars",
+    distanceFromSun: {
+      value: 227900000,
+      measurementUnit: "kilometers",
+    },
+  };
+  setTimeout(() => console.log("Returned planet: ", mars), 4000);
 };
 
-getUser(userFullName); // deve imprimir "Hello! My name is Ivan Ivanovich" depois de um certo tempo
-getUser(userNationality); // deve imprimir "Ivan is Russian" depois de um certo tempo
+getPlanet(); // imprime Marte depois de 4 segundos
