@@ -1,16 +1,11 @@
-const uppercase = (str, callback) => {
-  setTimeout(() => {
-    callback(str.toUpperCase());
-  }, 500);
-};
+beforeEach(() => console.log('1 - beforeEach'));
+afterEach(() => console.log('1 - afterEach'));
 
-it('Testando uppercase - lalanametala para LALANAMETALA', (done) => {
-  uppercase('lalanametala', (str) => {
-    try {
-      expect(str).toBe('LALANAMETALA');
-      done();
-    } catch (error) {
-      done(error);
-    }
-  });
+test('', () => console.log('1 - test'));
+
+describe('Scoped / Nested block', () => {
+  beforeEach(() => console.log('2 - beforeEach'));
+  afterEach(() => console.log('2 - afterEach'));
+
+  test('', () => console.log('2 - test'));
 });
