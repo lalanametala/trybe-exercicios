@@ -10,13 +10,8 @@ const createLi = (currency) => {
 async function loadApi () {
   let arrayOfCrypto = await fetch(API_URL)
     .then((response) => response.json());
-
-  console.log(arrayOfCrypto);
   
-  arrayOfCrypto = arrayOfCrypto.data.filter((currency, index) => index < 10);
-
-  console.log(arrayOfCrypto);
-
+  arrayOfCrypto = arrayOfCrypto.data.filter((currency, index) => index < 10); 
   arrayOfCrypto.forEach(element => {
     createLi(element);  
   });
