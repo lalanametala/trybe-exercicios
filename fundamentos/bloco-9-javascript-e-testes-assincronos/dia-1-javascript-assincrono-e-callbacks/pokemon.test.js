@@ -1,0 +1,1 @@
+const { getPokemonDetails } = require("./get-pokemon-details");
