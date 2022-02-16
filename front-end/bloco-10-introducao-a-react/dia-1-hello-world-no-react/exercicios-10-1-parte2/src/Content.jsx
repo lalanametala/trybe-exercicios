@@ -24,8 +24,11 @@ class Content extends React.Component {
         status: 'Aprenderei'
       },
     ];
+    
     return(
-      conteudos.map((obj) => <div className='parent-div'><p>O conteúdo é: {obj.conteudo}</p><p>Status: {obj.status}</p><p>Bloco: {obj.bloco}</p></div>)
+      <div className='envelope'>
+        {conteudos.map((obj) => <div className='parent-div'><p><span>O conteúdo é:</span> {obj.conteudo}</p><p><span>Status:</span> {obj.status}</p><p><span>Bloco:</span> {obj.bloco}</p></div>)}
+      </div>
     );
   }
 }
