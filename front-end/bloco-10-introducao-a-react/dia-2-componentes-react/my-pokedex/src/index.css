@@ -11,3 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.pokemon {
+  display: flex;
+  justify-content: space-around;
+  border: black solid 1px;
+  border-radius: 10px;
+  margin: 30px 10px;
+  width: 30%;
+  padding: 10px 0;
+}
+
+.info {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+}
+
+.info p {
+  line-height: 3px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: large;
+  text-decoration: underline;
+}
