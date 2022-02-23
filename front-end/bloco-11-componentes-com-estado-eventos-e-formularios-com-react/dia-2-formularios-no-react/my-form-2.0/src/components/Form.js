@@ -1,23 +1,26 @@
 import React, { Component } from "react";
 import JobFieldset from "./JobFieldset";
 import PersonalFieldset from "./PersonalFieldset";
+import PropTypes from 'prop-types';
+
+const STATE_OBJ = {
+  name: '',
+  email: '',
+  cpf: '',
+  address: '',
+  city: '',
+  state: '',
+  resType: '',
+  resumeSum: '',
+  job: '',
+  jobDescr: '',
+}
 
 class Form extends Component {
   constructor() {
     super();
 
-    this.state = {
-      name: '',
-      email: '',
-      cpf: '',
-      address: '',
-      city: '',
-      state: '',
-      resType: '',
-      resumeSum: '',
-      job: '',
-      jobDescr: ''
-    }
+    this.state = STATE_OBJ;
   }
 
   handleChange = ({ target }) => {
@@ -27,10 +30,18 @@ class Form extends Component {
     })
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const { addResume } = this.props;
+    addResume(this.state);
+    this.setState(STATE_OBJ);
+  }
+
   render() {
     const { name, email, cpf, address, city, state, resumeSum, job, jobDescr } = this.state;
     return(
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <PersonalFieldset 
           name={name} 
           email={email} 
@@ -46,9 +57,15 @@ class Form extends Component {
           jobDescr={jobDescr}
           handleChange={this.handleChange}
         />
+        <button type="submit">
+          Gerar Currículo
+        </button>
       </form>
     );
   }
 }
+Form.propTypes = {
+  addResume: PropTypes.func.isRequired,
+};
 
 export default Form;
