@@ -27,13 +27,11 @@ class App extends Component {
   render() {
     return (
       <>
-        <Form addResume={this.renderResume} />
-        <button onClick={this.clickHandler} >Apagar</button>
+        <Form clickHandler={this.clickHandler} addResume={this.renderResume} />
         {this.state.isFilled && <Resume currentState={this.state.resume} />}
       </>
     );
-  }
-  
+  }  
 }
 
 export default App;

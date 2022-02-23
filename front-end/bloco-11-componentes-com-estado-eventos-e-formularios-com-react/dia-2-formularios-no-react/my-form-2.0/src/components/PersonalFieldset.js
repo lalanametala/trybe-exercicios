@@ -42,7 +42,7 @@ class PersonalFieldset extends Component {
         <InputRender 
           name="name" 
           label="Nome" 
-          value={name} 
+          value={name}
           handleChange={handleChange}
         />
         <InputRender 

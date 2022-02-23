@@ -38,6 +38,12 @@ class Form extends Component {
     this.setState(STATE_OBJ);
   }
 
+  handleErase = () => {
+    const { clickHandler } = this.props;
+    clickHandler();
+    this.setState(STATE_OBJ);
+  }
+
   render() {
     const { name, email, cpf, address, city, state, resumeSum, job, jobDescr } = this.state;
     return(
@@ -60,6 +66,8 @@ class Form extends Component {
         <button type="submit">
           Gerar Currículo
         </button>
+
+        <button onClick={this.handleErase} >Apagar</button>
       </form>
     );
   }

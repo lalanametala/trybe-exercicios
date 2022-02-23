@@ -10,6 +10,7 @@ class InputRender extends Component {
           name={name}
           value={value}
           type='text'
+          required
           onChange={handleChange}
         />
       </label>
