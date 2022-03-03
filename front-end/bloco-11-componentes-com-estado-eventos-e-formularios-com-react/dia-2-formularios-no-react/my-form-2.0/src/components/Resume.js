@@ -19,7 +19,7 @@ class Resume extends Component {
         <div> Estado: { state }</div>
         <div> Tipo de residência: { resType }</div>
         <h3>Profissional</h3>
-        <div> Currículo: { resumeSum }</div>
+        <div> Resumo do currículo: { resumeSum }</div>
         <div> Cargo: { job }</div>
         <div> Descrição do cargo: { jobDescr }</div>
       </div>

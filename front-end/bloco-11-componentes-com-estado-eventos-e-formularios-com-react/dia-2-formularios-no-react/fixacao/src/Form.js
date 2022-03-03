@@ -1,64 +1,65 @@
 import React, { Component } from 'react'
+import AgeFieldset from './components/AgeFieldset';
+import PositionFieldset from './components/PositionFieldset';
+import StateFieldset from './components/StateFieldset';
 
 class Form extends Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.fileInput = React.createRef();
 
     this.state = {
       posicao: '',
       estadoFavorito: '',
       idade: 0,
       vaiComparecer: false,
-      arquivo: ''
+      formularioComErros: true,
     };
   };
   
+  handleError = () => {
+    const { estadoFavorito, idade } = this.state;
+
+    const errorCases = [!idade.length, !estadoFavorito.length];
+
+    this.setState({
+      formularioComErros: errorCases.some((error) => error)
+    })
+  }
+
   handleChange({ target }) {
     const { name, type } = target;
-    const value = type === 'checkbox' ? target.checked : (type === 'file' ? this.fileInput.current.files[0].name : target.value);
+    const value = type === 'checkbox' ? target.checked : target.value;
     console.log(value);
     this.setState({
       [name]: value
-    });
+    }, () => { this.handleError(); });
   }  
 
   render() {
+    const { posicao, estadoFavorito, idade, vaiComparecer, formularioComErros } = this.state;
     return (
       <>
         <h1>Form</h1>
         <form>
-          <fieldset>
-            <select name="posicao" defaultValue="first" onChange={this.handleChange}>
-              <option value="first">First</option>
-              <option value="second">Second</option>
-              <option value="third">Third</option>
-            </select>
-          </fieldset>
-          <fieldset>
-            <input
-              type="number"
-              name="idade"
-              value={this.state.idade}
-              onChange={this.handleChange}
-            />
-            <input
-              type="checkbox"
-              name="vaiComparecer"
-              value={this.state.vaiComparecer}
-              onChange={this.handleChange}
-            />
-          </fieldset>
-          <fieldset>
-            <label>
-              Estado favorito:
-                <textarea name="estadoFavorito" value={this.state.estadoFavorito} onChange={this.handleChange} />
-            </label>
-            <input onChange={this.handleChange} type="file" ref={this.fileInput} name="arquivo" />
-          </fieldset>
+          <PositionFieldset 
+            posicao={posicao} 
+            handleChange={this.handleChange}
+          /> 
+          <AgeFieldset
+            idade={idade} 
+            vaiComparecer={vaiComparecer} 
+            handleChange={this.handleChange}
+          />
+          <StateFieldset
+            estadoFavorito={estadoFavorito} 
+            handleChange={this.handleChange}
+          />
         </form>
+        { formularioComErros
+          ? <span style={ { color: 'red' } }>Preencha todos os campos</span>
+          : <span style={ { color: 'green' } }>Todos campos foram preenchidos</span> }
       </>
     )
   }

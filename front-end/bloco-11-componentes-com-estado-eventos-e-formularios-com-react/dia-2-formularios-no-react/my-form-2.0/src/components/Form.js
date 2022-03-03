@@ -67,7 +67,7 @@ class Form extends Component {
           Gerar Currículo
         </button>
 
-        <button onClick={this.handleErase} >Apagar</button>
+        <button onClick={this.handleErase}>Apagar</button>
       </form>
     );
   }

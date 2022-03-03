@@ -17,7 +17,7 @@ class App extends Component {
   renderResume = (data) => {
     this.setState({
       resume: data,
-      isFilled: true}, () => console.log(this.state))
+      isFilled: true})
   }
 
   clickHandler = () => {
