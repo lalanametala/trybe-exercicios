@@ -9,6 +9,16 @@ const oper = (num1, num2, num3) => {
 
 const rN = () => Math.floor(Math.random() * 100 + 1);
 
-oper(rN(), rN(), rN())
-  .then(result => console.log('sucesso: %s', result))
-  .catch(err => console.log('erro: %s', err.message));
+const calcOper = async () => {
+  try {
+    const result = await oper(rN(), rN(), rN());
+    console.log('sucesso: %s', result);
+  } catch (error) {
+    console.log('erro: %s', error.message)
+  }
+};
+
+calcOper();
+// oper(rN(), rN(), rN())
+//   .then(result => console.log('sucesso: %s', result))
+//   .catch(err => console.log('erro: %s', err.message));
