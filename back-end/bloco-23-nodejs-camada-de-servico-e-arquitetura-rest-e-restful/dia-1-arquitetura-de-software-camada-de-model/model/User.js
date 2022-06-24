@@ -37,7 +37,7 @@ const create = async ({ firstName, lastName, email, password }) => {
     obj: {
       id: insertId, 
       firstName, 
-      lastName, 
+      lastName,
       email,
     }
   };
