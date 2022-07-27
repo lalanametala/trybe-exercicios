@@ -1,4 +1,4 @@
-const units = ["km", "hm", "dam", "m", "dm", "cm", "mm"];
+const units = ["kg", "hg", "dag", "g", "dg", "cg", "mg"];
 
 function convert(value:number, base:string, conv:string):number{
   const baseIndex = units.indexOf(base);
